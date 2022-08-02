@@ -19,12 +19,12 @@ import sys
 import traceback
 
 # Name of the UTF-16 encoding with the system byte order.
-if sys.byteorder == 'little':
-    UTF16_NATIVE = 'utf-16-le'
-elif sys.byteorder == 'big':
+if sys.byteorder == 'big':
     UTF16_NATIVE = 'utf-16-be'
+elif sys.byteorder == 'little':
+    UTF16_NATIVE = 'utf-16-le'
 else:
-    raise AssertionError('Unknown byte order: ' + sys.byteorder)
+    raise AssertionError(f'Unknown byte order: {sys.byteorder}')
 
 
 class CFTypeRef(ctypes.c_void_p):
